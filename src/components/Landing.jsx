@@ -31,7 +31,7 @@ function Landing() {
           justifyContent: "center",
           gap: {
             lg: "35%",
-            md: "35%",
+            md: "15%",
           },
           flexDirection: {
             sm: "column",
@@ -67,7 +67,7 @@ function Landing() {
         > 
 
 
-          <Box sx = {{display:'flex', justifyContent: "center", gap: "5px"}}>
+          <Box sx = {{display:'flex', justifyContent: "center", gap: "2px"}}>
           <Typography component = "img" src = "https://media.licdn.com/dms/image/v2/C560BAQEVffdnzZzV_w/company-logo_200_200/company-logo_200_200/0/1630647812946/cherrywork__logo?e=2147483647&v=beta&t=nlGCFm7FW65DejDbbVYuj-MrO3MLrq5NZzcTcrDclbg"
            sx = {{height: "80px"}}/>
 
