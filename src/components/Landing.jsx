@@ -7,7 +7,7 @@ function Landing() {
 
   return (
     <Container maxWidth="xxl">
-      <Fade in timeout={1000}>
+      <Fade in timeout={2500}>
         <Box
           sx={{
             width: {
@@ -16,8 +16,11 @@ function Landing() {
               md: "30%",
               lg: "20%",
             },
-            mx: { xs: 3, xl: 4, md: 0},
+            mx: { xl: 3, md: 0},
             mt: { xs: 3 },
+            textAlign: {
+              xs: "center"
+            }
           }}
         >
           <img 
@@ -36,7 +39,7 @@ function Landing() {
           gap: { xs: 4, md: "10%", lg: "15%" },
           flexDirection: { xs: "column", md: "row" },
           mt: { xs: 4, md: 8 },
-          minHeight: "calc(100vh - 300px)",
+          // minHeight: "calc(100vh - 300px)",
         }}
       >
         <Zoom in timeout={1500}>
@@ -131,7 +134,7 @@ function Landing() {
             <Button
               variant="outlined"
               size="large"
-              endIcon={<ArrowForwardIcon />}
+              endIcon={<ArrowForwardIcon/>}
               sx={{
                 borderRadius: "50px",
                 borderColor: c1,
