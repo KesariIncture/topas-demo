@@ -1,10 +1,9 @@
-import Landing from "./components/Landing";
-
+import { Outlet } from "react-router";
 
 function App() {
   return (
     <>
-      <Landing />
+      <Outlet />
     </>
   );
 }

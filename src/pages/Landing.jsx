@@ -1,5 +1,6 @@
 import { Box, Button, Typography, Container, Fade, Zoom } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router";
 
 function Landing() {
   const words = ["Talent", "Optimization", "Planning", "Allocation", "System"];
@@ -131,6 +132,7 @@ function Landing() {
           </Fade>
 
           <Fade in timeout={3000}>
+            <Link to = "/dashboard">
             <Button
               variant="outlined"
               size="large"
@@ -155,6 +157,7 @@ function Landing() {
             >
               Proceed
             </Button>
+            </Link>
           </Fade>
         </Box>
       </Box>
