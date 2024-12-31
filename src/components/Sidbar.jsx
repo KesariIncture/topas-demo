@@ -43,7 +43,11 @@ function Sidebar() {
           backgroundColor: "#f8fafc",
           borderRight: "1px solid rgba(0, 81, 141, 0.12)",
           transition: "width 0.3s ease",
-          mt: "64px", 
+          mt: {
+            xs: "56px",
+            sm: "64px",
+            md: "64px"
+          }, 
           height: "calc(100vh - 64px)",
           overflowX: "hidden",
           overflowY: "hidden", 
