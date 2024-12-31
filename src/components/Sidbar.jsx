@@ -1,4 +1,4 @@
-import { Box, Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Typography } from "@mui/material";
+import { Box, Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Typography,Tooltip } from "@mui/material";
 import { Link, useLocation } from "react-router";
 import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
@@ -11,6 +11,7 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import HelpIcon from "@mui/icons-material/Help";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { useState } from "react";
+
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,56 +83,64 @@ function Sidebar() {
 
        
         <List sx={{ px: 1, py: 1 }}>
-          {menuItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <ListItem
-                key={item.text}
-                component={Link}
-                to={item.path}
-                sx={{
-                  borderRadius: "8px",
-                  mb: 0.3,
-                  py: 1,
-                  color: isActive ? "white" : c1,
-                  backgroundColor: isActive ? c1 : "transparent",
-                  "&:hover": {
-                    backgroundColor: isActive ? c1 : "rgba(0, 81, 141, 0.08)",
-                    transform: "translateX(5px)",
-                    transition: "transform 0.2s ease-in-out"
-                  },
-                  transition: "all 0.2s ease-in-out",
-                  textDecoration: "none",
-                }}
-              >
-                <ListItemIcon sx={{ 
-                  minWidth: isOpen ? 35 : "100%",
-                  color: isActive ? "white" : c1,
-                  justifyContent: isOpen ? "flex-start" : "center",
-                  "& .MuiSvgIcon-root": {
-                    fontSize: "1.3rem"  
-                  }
-                }}>
-                  {item.icon}
-                </ListItemIcon>
-                {isOpen && (
-                  <ListItemText 
-                    primary={
-                      <Typography
-                        variant="body2"  
-                        sx={{
-                          fontWeight: isActive ? 600 : 500,
-                        }}
-                      >
-                        {item.text}
-                      </Typography>
-                    }
-                  />
-                )}
-              </ListItem>
-            );
-          })}
-        </List>
+  {menuItems.map((item) => {
+    const isActive = location.pathname === item.path;
+    return (
+      <Tooltip
+        title={isOpen ? "" : item.text}
+        placement="right"
+        arrow
+        key={item.text}
+      >
+        <ListItem
+          component={Link}
+          to={item.path}
+          sx={{
+            borderRadius: "8px",
+            mb: 0.3,
+            py: 1,
+            color: isActive ? "white" : c1,
+            backgroundColor: isActive ? c1 : "transparent",
+            "&:hover": {
+              backgroundColor: isActive ? c1 : "rgba(0, 81, 141, 0.08)",
+              transform: "translateX(5px)",
+              transition: "transform 0.2s ease-in-out",
+            },
+            transition: "all 0.2s ease-in-out",
+            textDecoration: "none",
+          }}
+        >
+          <ListItemIcon
+            sx={{
+              minWidth: isOpen ? 35 : "100%",
+              color: isActive ? "white" : c1,
+              justifyContent: isOpen ? "flex-start" : "center",
+              "& .MuiSvgIcon-root": {
+                fontSize: "1.3rem",
+              },
+            }}
+          >
+            {item.icon}
+          </ListItemIcon>
+          {isOpen && (
+            <ListItemText
+              primary={
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: isActive ? 600 : 500,
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              }
+            />
+          )}
+        </ListItem>
+      </Tooltip>
+    );
+  })}
+</List>
       </Box>
     </Drawer>
   );
