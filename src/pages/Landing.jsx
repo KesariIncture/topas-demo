@@ -40,7 +40,7 @@ function Landing() {
           gap: { xs: 4, md: "10%", lg: "15%" },
           flexDirection: { xs: "column", md: "row" },
           mt: { xs: 4, md: 8 },
-          // minHeight: "calc(100vh - 300px)",
+      
         }}
       >
         <Zoom in timeout={1500}>

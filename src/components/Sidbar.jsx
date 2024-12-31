@@ -45,7 +45,8 @@ function Sidebar() {
           mt: "64px", 
           height: "calc(100vh - 64px)",
           overflowX: "hidden",
-          overflowY: "hidden" 
+          overflowY: "hidden", 
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)"
         },
       }}
     >
@@ -79,7 +80,7 @@ function Sidebar() {
           </IconButton>
         </Box>
 
-        {/* Navigation Section */}
+       
         <List sx={{ px: 1, py: 1 }}>
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
