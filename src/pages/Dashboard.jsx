@@ -29,7 +29,7 @@ function Dashboard() {
               Important:
             </Typography>
             <Typography sx = {{fontWeight: "bold"}}>
-              Risk Management and Seven Keys have been moved to <Link>Promise PORTAL</Link>
+              Risk Management and Seven Keys have been moved to <Link>PROMISE Portal.</Link>
             </Typography>
           </Box>
         </Marquee>
@@ -37,6 +37,7 @@ function Dashboard() {
           sx={{
             display: "flex",
             justifyContent: "space-between",
+            marginTop: "1rem",
           }}
         >
           <Typography variant="h6" sx={{ color: c1 }}>
