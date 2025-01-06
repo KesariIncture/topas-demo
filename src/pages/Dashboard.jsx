@@ -6,7 +6,7 @@ import {
   Tabs,
   Tab,
   Card,
-  CardContent,
+  Divider,
 } from "@mui/material";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -119,7 +119,7 @@ function Dashboard() {
               justifyContent: {
                 xs: "center",
                 md: "space-around",
-                sm: "space-around"
+                sm: "space-around",
               },
               flexDirection: {
                 xs: "column",
@@ -130,46 +130,68 @@ function Dashboard() {
                 sm: 2,
               },
               alignItems: {
-                xs: "center"
-              }
+                xs: "center",
+              },
             }}
           >
-            <Card sx={{ width: {
-              xs: "fit-content",
-              md: 275
-            }, padding: "10px" }}>
+            <Card
+              sx={{
+                width: {
+                  xs: "fit-content",
+                  md: 275,
+                },
+                padding: "10px",
+              }}
+            >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    textAlign:"center"
+                    textAlign: "center",
                   }}
                 >
-                  <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
-                  <Typography sx = {{fontWeight: "bold"}}>Total Working Hours</Typography>
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    0 hr 0 mins
+                  </Typography>
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    Total Working Hours
+                  </Typography>
                 </Box>
+              </Box>
+              <Divider />
+              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0}}}>
+                  <Typography>WFO: <b>0 hrs 0 min</b></Typography>
+                  <Divider orientation="vertical"  flexItem/>
+                  <Typography>WFH: <b>0 hrs 0 min</b></Typography>
               </Box>
             </Card>
 
-            
-
-            <Card sx={{ width: {
-              xs: "fit-content",
-              md: 275
-            }, padding: "10px" }}>
+            <Card
+              sx={{
+                width: {
+                  xs: "fit-content",
+                  md: 275,
+                },
+                padding: "10px",
+              }}
+            >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    textAlign:"center"
+                    textAlign: "center",
                   }}
                 >
-                  <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
-                  <Typography sx = {{fontWeight: "bold"}}>Total Working Hours</Typography>
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    0 hr 0 mins
+                  </Typography>
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    Total Working Hours
+                  </Typography>
                 </Box>
               </Box>
             </Card>
