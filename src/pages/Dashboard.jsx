@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { Home, Report, ScheduleRounded } from "@mui/icons-material";
+import { Home, Report, ScheduleRounded, WorkHistoryRounded } from "@mui/icons-material";
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
 
@@ -138,7 +138,7 @@ function Dashboard() {
               sx={{
                 width: {
                   xs: "fit-content",
-                  md: 275,
+                  md: 300,
                 },
                 padding: "10px",
               }}
@@ -160,8 +160,8 @@ function Dashboard() {
                   </Typography>
                 </Box>
               </Box>
-              <Divider />
-              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0}}}>
+              <Divider sx = {{marginTop: "2px"}}/>
+              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0},}}>
                   <Typography>WFO: <b>0 hrs 0 min</b></Typography>
                   <Divider orientation="vertical"  flexItem/>
                   <Typography>WFH: <b>0 hrs 0 min</b></Typography>
@@ -172,13 +172,13 @@ function Dashboard() {
               sx={{
                 width: {
                   xs: "fit-content",
-                  md: 275,
+                  md: 300,
                 },
                 padding: "10px",
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
+                <WorkHistoryRounded style={{ color: "green", fontSize: 50 }} />{" "}
                 <Box
                   sx={{
                     display: "flex",
@@ -190,9 +190,15 @@ function Dashboard() {
                     0 hr 0 mins
                   </Typography>
                   <Typography sx={{ fontWeight: "bold" }}>
-                    Total Working Hours
+                  Relevant Timesheet Hours
                   </Typography>
                 </Box>
+              </Box>
+              <Divider sx = {{marginTop: "2px"}}/>
+              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0},}}>
+                  <Typography>Leave: <b>0 hrs 0 min</b></Typography>
+                  <Divider orientation="vertical"  flexItem/>
+                  <Typography>Holiday: <b>0 hrs 0 min</b></Typography>
               </Box>
             </Card>
           </Box>
