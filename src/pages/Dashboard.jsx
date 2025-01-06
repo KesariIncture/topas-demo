@@ -1,13 +1,20 @@
-import { Typography, Box, IconButton } from "@mui/material";
+import { Typography, Box, IconButton, Paper, Tabs, Tab } from "@mui/material";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { Home, Report } from "@mui/icons-material";
 import Marquee from "react-fast-marquee";
-import { Link } from "react-router";
+import { useState } from "react";
+
 
 
 function Dashboard() {
   const c1 = "#00518D";
+
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
 
   return (
     <>
@@ -28,8 +35,8 @@ function Dashboard() {
               <Report fontSize="small" />
               Important:
             </Typography>
-            <Typography sx = {{fontWeight: "bold"}}>
-              Risk Management and Seven Keys have been moved to <Link>PROMISE Portal.</Link>
+            <Typography sx={{ fontWeight: "bold" }}>
+              Risk Management and Seven Keys have been moved to <a href="https://promis.cherrywork.com/" target="_blank" rel="noopener noreferrer">PROMISE Portal</a>
             </Typography>
           </Box>
         </Marquee>
@@ -41,7 +48,7 @@ function Dashboard() {
           }}
         >
           <Typography variant="h6" sx={{ color: c1 }}>
-            Welcome, Kesari Nandan
+            Welcome, <b>Kesari Nandan</b>
           </Typography>
           <IconButton
             sx={{
@@ -54,6 +61,15 @@ function Dashboard() {
             <Home />
           </IconButton>
         </Box>
+        <Box sx={{ backgroundColor: "#ECF8F9", width: "fit-content", padding: "5px", marginTop: "2rem", borderRadius: "10px 10px 0 0" }}>
+          <Typography variant="h6" sx={{ color: c1, fontWeight: "bold" }}>Attendance</Typography>
+        </Box>
+        <Paper elevation={2} sx={{ marginTop: "3px" }}>
+          <Tabs value={tabValue} onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: c1} }}>
+            <Tab label="Week View" sx={{ fontFamily: "monospace", fontWeight: "bold" }} />
+            <Tab label="Month View" sx={{ fontFamily: "monospace", fontWeight: "bold" }} />
+          </Tabs>
+        </Paper>
       </Box>
     </>
   );
