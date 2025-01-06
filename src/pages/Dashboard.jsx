@@ -116,17 +116,35 @@ function Dashboard() {
             sx={{
               marginTop: "1rem",
               display: "flex",
-              justifyContent: "space-around",
+              justifyContent: {
+                xs: "center",
+                md: "space-around",
+                sm: "space-around"
+              },
+              flexDirection: {
+                xs: "column",
+                sm: "row",
+              },
+              gap: {
+                xs: 2,
+                sm: 2,
+              },
+              alignItems: {
+                xs: "center"
+              }
             }}
           >
-            <Card sx={{ minWidth: 275, padding: "10px" }}>
+            <Card sx={{ width: {
+              xs: "fit-content",
+              md: 275
+            }, padding: "10px" }}>
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    textAlign:"center"
                   }}
                 >
                   <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
@@ -137,14 +155,17 @@ function Dashboard() {
 
             
 
-            <Card sx={{ minWidth: 275, padding: "10px" }}>
+            <Card sx={{ width: {
+              xs: "fit-content",
+              md: 275
+            }, padding: "10px" }}>
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    textAlign:"center"
                   }}
                 >
                   <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
