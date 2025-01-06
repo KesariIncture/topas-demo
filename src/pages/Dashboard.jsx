@@ -65,9 +65,14 @@ function Dashboard() {
           <Typography variant="h6" sx={{ color: c1, fontWeight: "bold" }}>Attendance</Typography>
         </Box>
         <Paper elevation={2} sx={{ marginTop: "3px" }}>
-          <Tabs value={tabValue} onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: c1} }}>
-            <Tab label="Week View" sx={{ fontFamily: "monospace", fontWeight: "bold" }} />
-            <Tab label="Month View" sx={{ fontFamily: "monospace", fontWeight: "bold" }} />
+          <Tabs 
+            value={tabValue} 
+            onChange={handleChange} 
+            TabIndicatorProps={{ style: { backgroundColor: c1 } }}
+            textColor="inherit"
+          >
+            <Tab label="Week View" sx={{ fontFamily: "monospace", fontWeight: "bold", color: tabValue === 0 ? c1 : "inherit" }} />
+            <Tab label="Month View" sx={{ fontFamily: "monospace", fontWeight: "bold", color: tabValue === 1 ? c1 : "inherit" }} />
           </Tabs>
         </Paper>
       </Box>
