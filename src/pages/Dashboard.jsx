@@ -1,11 +1,18 @@
-import { Typography, Box, IconButton, Paper, Tabs, Tab } from "@mui/material";
+import {
+  Typography,
+  Box,
+  IconButton,
+  Paper,
+  Tabs,
+  Tab,
+  Card,
+  CardContent,
+} from "@mui/material";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { Home, Report } from "@mui/icons-material";
+import { Home, Report, ScheduleRounded } from "@mui/icons-material";
 import Marquee from "react-fast-marquee";
 import { useState } from "react";
-
-
 
 function Dashboard() {
   const c1 = "#00518D";
@@ -36,7 +43,14 @@ function Dashboard() {
               Important:
             </Typography>
             <Typography sx={{ fontWeight: "bold" }}>
-              Risk Management and Seven Keys have been moved to <a href="https://promis.cherrywork.com/" target="_blank" rel="noopener noreferrer">PROMISE Portal</a>
+              Risk Management and Seven Keys have been moved to{" "}
+              <a
+                href="https://promis.cherrywork.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PROMISE Portal
+              </a>
             </Typography>
           </Box>
         </Marquee>
@@ -61,19 +75,84 @@ function Dashboard() {
             <Home />
           </IconButton>
         </Box>
-        <Box sx={{ backgroundColor: "#ECF8F9", width: "fit-content", padding: "5px", marginTop: "2rem", borderRadius: "10px 10px 0 0" }}>
-          <Typography variant="h6" sx={{ color: c1, fontWeight: "bold" }}>Attendance</Typography>
+        <Box
+          sx={{
+            backgroundColor: "#ECF8F9",
+            width: "fit-content",
+            padding: "5px",
+            marginTop: "2rem",
+            borderRadius: "10px 10px 0 0",
+          }}
+        >
+          <Typography variant="h6" sx={{ color: c1, fontWeight: "bold" }}>
+            Attendance
+          </Typography>
         </Box>
-        <Paper elevation={2} sx={{ marginTop: "3px" }}>
-          <Tabs 
-            value={tabValue} 
-            onChange={handleChange} 
+        <Paper elevation={2} sx={{ marginTop: "3px", padding: "10px" }}>
+          <Tabs
+            value={tabValue}
+            onChange={handleChange}
             TabIndicatorProps={{ style: { backgroundColor: c1 } }}
             textColor="inherit"
           >
-            <Tab label="Week View" sx={{ fontFamily: "monospace", fontWeight: "bold", color: tabValue === 0 ? c1 : "inherit" }} />
-            <Tab label="Month View" sx={{ fontFamily: "monospace", fontWeight: "bold", color: tabValue === 1 ? c1 : "inherit" }} />
+            <Tab
+              label="Week View"
+              sx={{
+                fontFamily: "monospace",
+                fontWeight: "bold",
+                color: tabValue === 0 ? c1 : "inherit",
+              }}
+            />
+            <Tab
+              label="Month View"
+              sx={{
+                fontFamily: "monospace",
+                fontWeight: "bold",
+                color: tabValue === 1 ? c1 : "inherit",
+              }}
+            />
           </Tabs>
+          <Box
+            sx={{
+              marginTop: "1rem",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            <Card sx={{ minWidth: 275, padding: "10px" }}>
+              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
+                  <Typography sx = {{fontWeight: "bold"}}>Total Working Hours</Typography>
+                </Box>
+              </Box>
+            </Card>
+
+            
+
+            <Card sx={{ minWidth: 275, padding: "10px" }}>
+              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography sx = {{fontWeight: "bold"}}>0 hr 0 mins</Typography>
+                  <Typography sx = {{fontWeight: "bold"}}>Total Working Hours</Typography>
+                </Box>
+              </Box>
+            </Card>
+          </Box>
         </Paper>
       </Box>
     </>
