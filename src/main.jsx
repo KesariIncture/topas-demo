@@ -3,12 +3,22 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Dashboard from "./pages/Dashboard";
 import App from "./App"
 import Landing from "./pages/Landing"
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
+
  
 const BASE_PATH = "/topas-demo";
 
 const root = document.getElementById("root");
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(root).render(
+  <QueryClientProvider client={queryClient}>
   <BrowserRouter basename={BASE_PATH}>
     <Routes>
       <Route path="/" element={<App />}>
@@ -17,4 +27,6 @@ ReactDOM.createRoot(root).render(
       </Route>
     </Routes>
   </BrowserRouter>
+  <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
 );
