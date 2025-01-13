@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Dashboard from "./pages/Dashboard";
 import App from "./App"
 import Landing from "./pages/Landing"
+import Talent from "./pages/Talent";
 import {
   QueryClient,
   QueryClientProvider,
@@ -24,6 +25,7 @@ ReactDOM.createRoot(root).render(
       <Route path="/" element={<App />}>
         <Route index element={<Landing />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path= "/talent" element = {<Talent/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
