@@ -1,3 +1,4 @@
+import  { useState } from 'react';
 import {
   Typography,
   Box,
@@ -12,29 +13,29 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { Home, Report, ScheduleRounded, WorkHistoryRounded } from "@mui/icons-material";
 import Marquee from "react-fast-marquee";
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 function Dashboard() {
   const c1 = "#00518D";
-
   const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
 
-  const {data} = useQuery({
+  const { data } = useQuery({
     queryKey: ["posts"],
-    queryFn: async() => {
-      const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
-      return response.data
+    queryFn: async () => {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      return response.data;
     }
-  })
+  });
 
-  console.log(data)
 
 
   return (
@@ -68,6 +69,7 @@ function Dashboard() {
             </Typography>
           </Box>
         </Marquee>
+        
         <Box
           sx={{
             display: "flex",
@@ -89,6 +91,7 @@ function Dashboard() {
             <Home />
           </IconButton>
         </Box>
+
         <Box
           sx={{
             backgroundColor: "#ECF8F9",
@@ -102,6 +105,7 @@ function Dashboard() {
             Attendance
           </Typography>
         </Box>
+
         <Paper elevation={2} sx={{ marginTop: "3px", padding: "10px" }}>
           <Tabs
             value={tabValue}
@@ -126,6 +130,8 @@ function Dashboard() {
               }}
             />
           </Tabs>
+
+          {/* Cards Section */}
           <Box
             sx={{
               marginTop: "1rem",
@@ -148,6 +154,7 @@ function Dashboard() {
               },
             }}
           >
+            {/* First Card */}
             <Card
               sx={{
                 width: {
@@ -158,7 +165,7 @@ function Dashboard() {
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />{" "}
+                <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />
                 <Box
                   sx={{
                     display: "flex",
@@ -174,14 +181,15 @@ function Dashboard() {
                   </Typography>
                 </Box>
               </Box>
-              <Divider sx = {{marginTop: "2px"}}/>
-              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0},}}>
-                  <Typography>WFO: <b>0 hrs 0 min</b></Typography>
-                  <Divider orientation="vertical"  flexItem/>
-                  <Typography>WFH: <b>0 hrs 0 min</b></Typography>
+              <Divider sx={{ marginTop: "2px" }} />
+              <Box sx={{ display: "flex", justifyContent: "space-around", gap: { xs: 2, md: 0 } }}>
+                <Typography>WFO: <b>0 hrs 0 min</b></Typography>
+                <Divider orientation="vertical" flexItem />
+                <Typography>WFH: <b>0 hrs 0 min</b></Typography>
               </Box>
             </Card>
 
+            {/* Second Card */}
             <Card
               sx={{
                 width: {
@@ -192,7 +200,7 @@ function Dashboard() {
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <WorkHistoryRounded style={{ color: "green", fontSize: 50 }} />{" "}
+                <WorkHistoryRounded style={{ color: "green", fontSize: 50 }} />
                 <Box
                   sx={{
                     display: "flex",
@@ -204,18 +212,60 @@ function Dashboard() {
                     0 hr 0 mins
                   </Typography>
                   <Typography sx={{ fontWeight: "bold" }}>
-                  Relevant Timesheet Hours
+                    Relevant Timesheet Hours
                   </Typography>
                 </Box>
               </Box>
-              <Divider sx = {{marginTop: "2px"}}/>
-              <Box sx = {{display: "flex", justifyContent: "space-around", gap: {xs: 2, md: 0},}}>
-                  <Typography>Leave: <b>0 hrs 0 min</b></Typography>
-                  <Divider orientation="vertical"  flexItem/>
-                  <Typography>Holiday: <b>0 hrs 0 min</b></Typography>
+              <Divider sx={{ marginTop: "2px" }} />
+              <Box sx={{ display: "flex", justifyContent: "space-around", gap: { xs: 2, md: 0 } }}>
+                <Typography>Leave: <b>0 hrs 0 min</b></Typography>
+                <Divider orientation="vertical" flexItem />
+                <Typography>Holiday: <b>0 hrs 0 min</b></Typography>
               </Box>
             </Card>
           </Box>
+
+          { tabValue === 0 && (
+              <h1>Table</h1>
+            )
+          }
+
+          {/* Calendar Section */}
+          {tabValue === 1 && (
+            <Box sx={{ 
+              marginTop: "2rem",
+              '& .fc': {
+                fontFamily: 'monospace',
+              },
+              '& .fc-toolbar-title': {
+                color: c1,
+                fontSize: {
+                  xs: '1.2rem',
+                  sm: '1.5rem',
+                },
+              },
+              '& .fc-button': {
+                backgroundColor: c1,
+                borderColor: c1,
+                '&:hover': {
+                  backgroundColor: `${c1}dd`,
+                },
+              },
+              '& .fc-event': {
+                cursor: 'pointer',
+              },
+            }}>
+              <FullCalendar
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                initialView="dayGridMonth"
+                headerToolbar={{
+                  left: 'title',
+                  right: 'prev,next today'
+                }}
+                height="auto"
+              />
+            </Box>
+          )}
         </Paper>
       </Box>
     </>
