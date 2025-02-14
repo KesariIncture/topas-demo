@@ -263,6 +263,9 @@ function Dashboard() {
                   xs: '0.5rem',
                   sm: '1rem'
                 },
+              },
+              '& .fc-col-header-cell': {
+                backgroundColor: '#ECF8F9'
               }
             }}>
               <FullCalendar
