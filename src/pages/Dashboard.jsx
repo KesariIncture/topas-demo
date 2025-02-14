@@ -36,6 +36,28 @@ function Dashboard() {
     }
   });
 
+  const events = [
+    {
+      title: '8 hrs 30 min',
+      start: '2025-01-02',
+    },
+    {
+      title: '7 hrs 45 min',
+      start: '2025-01-05',
+    },
+    {
+      title: '8 hrs 15 min',
+      start: '2025-01-09',
+    },
+    {
+      title: '6 hrs 30 min',
+      start: '2025-01-12',
+    },
+    {
+      title: '9 hrs 00 min',
+      start: '2025-01-15',
+    }
+  ];
 
 
   return (
@@ -134,6 +156,7 @@ function Dashboard() {
           {/* Cards Section */}
           <Box
             sx={{
+             
               marginTop: "1rem",
               display: "flex",
               justifyContent: {
@@ -157,6 +180,7 @@ function Dashboard() {
             {/* First Card */}
             <Card
               sx={{
+                
                 width: {
                   xs: "fit-content",
                   md: 300,
@@ -164,7 +188,7 @@ function Dashboard() {
                 padding: "10px",
               }}
             >
-              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <Box sx={{ display: "flex", justifyContent: "space-around",  }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />
                 <Box
                   sx={{
@@ -173,7 +197,7 @@ function Dashboard() {
                     textAlign: "center",
                   }}
                 >
-                  <Typography sx={{ fontWeight: "bold" }}>
+                  <Typography sx={{ fontWeight: "bold",  }}>
                     0 hr 0 mins
                   </Typography>
                   <Typography sx={{ fontWeight: "bold" }}>
@@ -266,6 +290,39 @@ function Dashboard() {
               },
               '& .fc-col-header-cell': {
                 backgroundColor: '#ECF8F9'
+              },
+              '& .fc-daygrid-event': {
+                backgroundColor: c1,
+                border: 'none',
+                borderRadius: {
+                  xs: '50%',
+                  sm: '4px'
+                },
+                padding: {
+                  xs: '4px',
+                  sm: '2px 4px',
+                  md: '10px'
+                },
+                width: {
+                  xs: '8px',
+                  sm: 'auto'
+                },
+                height: {
+                  xs: '8px',
+                  sm: 'auto'
+                },
+                display: {
+                  xs: 'inline-block',
+                  sm: 'block'
+                },
+                justifyContent: {
+                  sm: 'center'
+                },
+                fontSize: {
+                  xs: '0px',
+                  sm: '1rem'
+                },
+                fontWeight: 'bold',
               }
             }}>
               <FullCalendar
@@ -276,6 +333,14 @@ function Dashboard() {
                   right: 'prev,next today'
                 }}
                 height="auto"
+                events={events.map(event => {
+                  const hours = parseFloat(event.title.split(' ')[0]);
+                    return {
+                    ...event,
+                    backgroundColor: hours >= 9 ? '#A6CF98' : '#F28585',
+                    textColor: hours >= 9 ? '#707070' : '#FFFFFF'
+                    };
+                })}
               />
             </Box>
           )}
