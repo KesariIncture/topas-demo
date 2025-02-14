@@ -254,6 +254,16 @@ function Dashboard() {
               '& .fc-event': {
                 cursor: 'pointer',
               },
+              ' & .fc-toolbar' : {
+                flexDirection: {
+                  xs: 'column',
+                  sm: 'row'
+                },
+                gap: {
+                  xs: '0.5rem',
+                  sm: '1rem'
+                },
+              }
             }}>
               <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
