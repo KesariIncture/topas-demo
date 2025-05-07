@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import App from "./App"
 import Landing from "./pages/Landing"
 import Talent from "./pages/Talent";
+import Jasper from "./pages/Jasper";
 import {
   QueryClient,
   QueryClientProvider,
@@ -23,6 +24,7 @@ ReactDOM.createRoot(root).render(
   <BrowserRouter basename={BASE_PATH}>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route path="jasper" element={<Jasper />} />
         <Route index element={<Landing />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path= "/talent" element = {<Talent/>}/>

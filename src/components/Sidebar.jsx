@@ -30,13 +30,13 @@ function Sidebar() {
 
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/dashboard" },
+    { text: "Jasper", icon: <AssessmentIcon />, path: "/jasper" },
     { text: "Talent", icon: <PeopleIcon />, path: "/talent" },
     { text: "Demand", icon: <TrendingUpIcon />, path: "/demand" },
     { text: "Timesheet", icon: <AccessTimeIcon />, path: "/timesheet" },
     { text: "Projects", icon: <FolderIcon />, path: "/projects" },
     { text: "Skill", icon: <BuildIcon />, path: "/skill" },
     { text: "Feedback", icon: <FeedbackIcon />, path: "/feedback" },
-    { text: "Reports", icon: <AssessmentIcon />, path: "/reports" },
     { text: "Help", icon: <HelpIcon />, path: "/help" },
   ];
 
