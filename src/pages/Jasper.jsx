@@ -25,7 +25,7 @@ function Jasper() {
             return
         }
 
-        axios.post(`http://localhost:8080/jasper/generateEmpReport/${selectedGrade}`, {
+        axios.get(`http://localhost:8080/jasper/generateEmpReport/${selectedGrade}`, {
             grade: selectedGrade
         })
             .then(response => {
