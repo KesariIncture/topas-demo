@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import {
   Typography,
   Box,
@@ -8,10 +8,11 @@ import {
   Tab,
   Card,
   Divider,
+  Tooltip,
 } from "@mui/material";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { Home, Report, ScheduleRounded, WorkHistoryRounded } from "@mui/icons-material";
+import { Circle, Home, Report, ScheduleRounded, WorkHistoryRounded } from "@mui/icons-material";
 import Marquee from "react-fast-marquee";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -91,7 +92,7 @@ function Dashboard() {
             </Typography>
           </Box>
         </Marquee>
-        
+
         <Box
           sx={{
             display: "flex",
@@ -156,7 +157,7 @@ function Dashboard() {
           {/* Cards Section */}
           <Box
             sx={{
-             
+
               marginTop: "1rem",
               display: "flex",
               justifyContent: {
@@ -180,7 +181,7 @@ function Dashboard() {
             {/* First Card */}
             <Card
               sx={{
-                
+
                 width: {
                   xs: "fit-content",
                   md: 300,
@@ -188,7 +189,7 @@ function Dashboard() {
                 padding: "10px",
               }}
             >
-              <Box sx={{ display: "flex", justifyContent: "space-around",  }}>
+              <Box sx={{ display: "flex", justifyContent: "space-around", }}>
                 <ScheduleRounded style={{ color: "#FFA000", fontSize: 50 }} />
                 <Box
                   sx={{
@@ -197,7 +198,7 @@ function Dashboard() {
                     textAlign: "center",
                   }}
                 >
-                  <Typography sx={{ fontWeight: "bold",  }}>
+                  <Typography sx={{ fontWeight: "bold", }}>
                     0 hr 0 mins
                   </Typography>
                   <Typography sx={{ fontWeight: "bold" }}>
@@ -249,14 +250,16 @@ function Dashboard() {
             </Card>
           </Box>
 
-          { tabValue === 0 && (
-              <h1>Table</h1>
-            )
+          {tabValue === 0 && (
+            <Tooltip title='circle'>
+              <Circle></Circle>
+            </Tooltip>
+          )
           }
 
           {/* Calendar Section */}
           {tabValue === 1 && (
-            <Box sx={{ 
+            <Box sx={{
               marginTop: "2rem",
               '& .fc': {
                 fontFamily: 'monospace',
@@ -278,7 +281,7 @@ function Dashboard() {
               '& .fc-event': {
                 cursor: 'pointer',
               },
-              ' & .fc-toolbar' : {
+              ' & .fc-toolbar': {
                 flexDirection: {
                   xs: 'column',
                   sm: 'row'
@@ -335,11 +338,11 @@ function Dashboard() {
                 height="auto"
                 events={events.map(event => {
                   const hours = parseFloat(event.title.split(' ')[0]);
-                    return {
+                  return {
                     ...event,
                     backgroundColor: hours >= 9 ? '#A6CF98' : '#F28585',
                     textColor: hours >= 9 ? '#707070' : '#FFFFFF'
-                    };
+                  };
                 })}
               />
             </Box>
